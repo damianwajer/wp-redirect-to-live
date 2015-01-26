@@ -5,6 +5,7 @@
  * Author: Damian Wajer
  * Author URI: http://stronywww.info
  * Description: Redirect page to live instance for not logged in users
+ * License: GPL2
  */
 
 defined( 'ABSPATH' ) or die( "Access denied!" );
