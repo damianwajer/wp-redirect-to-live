@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Redirect to Live
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Damian Wajer
  * Author URI: http://stronywww.info
  * Description: Redirect page to live instance for not logged in users
@@ -28,7 +28,7 @@ function wp_redirect_to_live() {
 			header( 'Pragma: no-cache' ); // HTTP 1.0.
 			header( 'Expires: 0' ); // Proxies.
 
-			header( 'Location: ' . esc_url( WP_REDIRECT_TO_LIVE . $_SERVER['REQUEST_URI'] ), true, 301 );
+			header( 'Location: ' . esc_url( untrailingslashit( WP_REDIRECT_TO_LIVE ) . $_SERVER['REQUEST_URI'] ), true, 301 );
 			exit;
 		}
 
