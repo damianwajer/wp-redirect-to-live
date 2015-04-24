@@ -4,7 +4,7 @@
  * Version: 1.0.1
  * Author: Damian Wajer
  * Author URI: http://stronywww.info
- * Description: Redirect page to live instance for not logged in users
+ * Description: Redirect not logged in users to live instance of the website or show them the message.
  * License: GPL2
  */
 
