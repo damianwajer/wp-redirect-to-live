@@ -19,6 +19,7 @@ Example:
  * Options:
  * URL (string) - redirect not logged in users to specific URL
  * 404 (string) - return 404 Not Found page
+ * noindex (string) - add meta robots "noindex"
  * false (boolean) - disable the plugin
  */
 define( 'WP_REDIRECT_TO_LIVE', 'http://www.example.com' );
