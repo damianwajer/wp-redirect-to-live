@@ -1,9 +1,8 @@
 <?php
 /**
  * Plugin Name: WP Redirect to Live
- * Version: 1.0.1
+ * Version: 1.1.0
  * Author: Damian Wajer
- * Author URI: http://stronywww.info
  * Description: Redirect not logged in users to live instance of the website or show them the message.
  * License: GPL2
  */
@@ -23,6 +22,9 @@ function wp_redirect_to_live() {
 			header( 'HTTP/1.0 404 Not Found' );
 			echo 'You have to be logged in to see this page.';
 			exit;
+		} elseif ( WP_REDIRECT_TO_LIVE == 'noindex' ) {
+			// disallow indexing of the site
+			add_action('pre_option_blog_public', '__return_zero');
 		} elseif ( WP_REDIRECT_TO_LIVE != false ) {
 			header( 'Cache-Control: no-cache, no-store, must-revalidate' ); // HTTP 1.1.
 			header( 'Pragma: no-cache' ); // HTTP 1.0.
