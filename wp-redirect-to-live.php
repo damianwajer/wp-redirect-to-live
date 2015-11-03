@@ -38,4 +38,4 @@ function wp_redirect_to_live() {
 
 }
 
-add_action( 'init', 'wp_redirect_to_live' );
+add_action( 'template_redirect', 'wp_redirect_to_live' );
