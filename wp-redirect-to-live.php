@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Redirect to Live
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Damian Wajer
  * Description: Redirect not logged in users to live instance of the website or show them the message.
  * License: GPL2
@@ -32,11 +32,8 @@ function wp_redirect_to_live() {
 		// disallow indexing of the site
 		add_action( 'pre_option_blog_public', '__return_zero' );
 	} elseif ( WP_REDIRECT_TO_LIVE != false ) {
-		header( 'Cache-Control: no-cache, no-store, must-revalidate' ); // HTTP 1.1.
-		header( 'Pragma: no-cache' ); // HTTP 1.0.
-		header( 'Expires: 0' ); // Proxies.
-
-		header( 'Location: ' . esc_url( untrailingslashit( WP_REDIRECT_TO_LIVE ) . $_SERVER['REQUEST_URI'] ), true, 301 );
+		nocache_headers();
+		wp_redirect( esc_url_raw( untrailingslashit( WP_REDIRECT_TO_LIVE ) . $_SERVER['REQUEST_URI'] ), 301 );
 		exit;
 	}
 
